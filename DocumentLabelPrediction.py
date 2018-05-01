@@ -49,6 +49,7 @@ for topic in topics:
             bagOfWords.append(word)
 
     topicDict = {}
+
     # Create map of words and their frequencies
     for word in bagOfWords:
 
