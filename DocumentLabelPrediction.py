@@ -33,18 +33,22 @@ for topic in topics:
     bagOfWordsCount = 0
 
     file = open(topics[topic], "r")
+
     textString = file.read().lower().split()
 
     # Populate bag of words
     for word in textString:
 
+        word = word.replace(".", "")
+        word = word.replace(",", "")
+
         bagOfWordsCount = bagOfWordsCount + 1
 
         if word not in stopWords:
+
             bagOfWords.append(word)
 
     topicDict = {}
-
     # Create map of words and their frequencies
     for word in bagOfWords:
 
@@ -55,7 +59,7 @@ for topic in topics:
 
     # Calculate word weights (word count/ bagOfWordsCount)
     for word in topicDict:
-
+        
         topicDict[word] = (topicDict[word] / bagOfWordsCount)
 
     topicDictionaries.append(topicDict)
